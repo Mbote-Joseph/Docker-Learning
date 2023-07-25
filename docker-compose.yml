@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  aia_web_dev:
+    build: .
+    ports:
+      - "8888:80"
+    restart: "always"
+    volumes:
+      - ./logs/:/var/log/nginx
+    networks:
+      flourish:
+        aliases:
+          - aia_web_dev
+networks:
+  flourish:
+    external: true
